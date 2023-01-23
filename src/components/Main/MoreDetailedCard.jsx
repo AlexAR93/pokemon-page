@@ -75,6 +75,9 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
             <article className='card-container'>
                 <h1>Cargando...</h1>
             </article>
+            <button onClick={closeDetailsCard}>
+                <p>Cerrar</p>
+            </button>
         </div>
     )
   );

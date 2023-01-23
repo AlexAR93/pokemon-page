@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import getPokemon from '../../helpers/getPokemon'
 import useFetchPoke from '../../hooks/useFetchPoke'
 import Card from './Card'
 
 import Grid from '@mui/material/Grid';
 import MoreDetailedCard from './MoreDetailedCard';
+import { CardContext } from '../../context/CardContext';
 
 const PokeCarts = () => {
 
-  const [currentPokemon, setCurrentPokemon] = useState({
-    state:false
-  })
+  const {currentPokemon, setCurrentPokemon}= useContext(CardContext)
 
   const [data, setData] = useState([])
 
