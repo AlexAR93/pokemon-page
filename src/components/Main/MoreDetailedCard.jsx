@@ -56,7 +56,7 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
                         {
                             stats!==undefined&&(
                                 stats.map(element => <li key={element.stat.name}>
-                                    {element.stat.name}={element.base_stat}
+                                    {element.stat.name}=<span>{element.base_stat}</span>
                                 </li>)
                             )
                         }
