@@ -24,12 +24,16 @@ const PokeCarts = () => {
   }, [currentPokemon])
   
   
+  
   return (
     <>
       <Grid container spacing={2}>
         {
-          data.length>0&&
+          data.length>0?(
           data.map(d=><Grid item xs={12} sm={4} md={2} key={d.name}><Card name={d.name} useFetchPoke={useFetchPoke} setCurrentPokemon={setCurrentPokemon}/></Grid>)
+          ):(
+            <div>Cargando...</div>
+          )
         }
       </Grid>
 

@@ -7,20 +7,22 @@ import { CardActionArea } from '@mui/material';
 
 export default function Card({name,useFetchPoke,setCurrentPokemon}) {
 
-  const showMoreDate=(e,currentPokemon)=>{
-    setCurrentPokemon(c=>({
+  const showMoreDate=()=>{
+    setCurrentPokemon({
       state:true,
-      name:currentPokemon
-    }))
+      name:name
+    })
   }
 
+  let {image,height,weight}=useFetchPoke(name);
+
   return (
-    <CardStyle sx={{ maxWidth: 345 }}>
-      <CardActionArea onClick={e=>showMoreDate(e,name)}>
+    <CardStyle sx={{ maxWidth: 'auto' }}>
+      <CardActionArea onClick={showMoreDate}>
         <CardMedia
           component="img"
-          height="140"
-          image={useFetchPoke(name).image}
+          height="200"
+          image={image}
           alt={name}
         />
         <CardContent>
@@ -28,8 +30,8 @@ export default function Card({name,useFetchPoke,setCurrentPokemon}) {
             {name}
           </Typography>
           <ul>
-            <li>Fuerza: {useFetchPoke(name).weight}</li>
-            <li>Altura: {useFetchPoke(name).height}</li>
+            <li>Fuerza: {weight}</li>
+            <li>Altura: {height}</li>
           </ul>
         </CardContent>
       </CardActionArea>

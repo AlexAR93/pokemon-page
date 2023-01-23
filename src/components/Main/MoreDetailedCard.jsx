@@ -5,7 +5,7 @@ import './index.css'
 
 export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, useFetchPoke}){
 
-    let {types,stats}=useFetchPoke(currentPokemon.name)
+    let {types,stats,image,weight,height}=useFetchPoke(currentPokemon.name)
     
     const closeDetailsCard=()=>{
         setCurrentPokemon({
@@ -13,12 +13,15 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
           })
     }
 
+   
+
   return (
-    <div className='details-container'>
+    image?(
+        <div className='details-container'>
         <article className='card-container'>
             <div className="img-container">
                 <img
-                src={useFetchPoke(currentPokemon.name).image}
+                src={image}
                 alt={currentPokemon.name}
                 />
             </div>
@@ -30,8 +33,8 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
             <div className='cardDetails'>
 
                 <div className="cardDetails__principal">
-                    <h2>Fuerza: <span>{useFetchPoke(currentPokemon.name).weight}</span></h2>
-                    <h2>Altura: <span>{useFetchPoke(currentPokemon.name).height}</span></h2>
+                    <h2>Fuerza: <span>{weight}</span></h2>
+                    <h2>Altura: <span>{height}</span></h2>
                 </div>
     
                 <div className="cardDetails__secondary">
@@ -67,5 +70,12 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
             <p>Cerrar</p>
         </button>
     </div>
+    ):(
+        <div className='details-container'>
+            <article className='card-container'>
+                <h1>Cargando...</h1>
+            </article>
+        </div>
+    )
   );
 }
