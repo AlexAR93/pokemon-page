@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import PokemonCarts from './PokemonCarts';
 import AboutThisApp from './AboutThisApp';
+import ComparePokemons from './ComparePokemons';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -51,13 +52,17 @@ const Main = () => {
        <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
           <Tab label="Pokemons" {...a11yProps(0)} />
-          <Tab label="About this app" {...a11yProps(1)} />
+          <Tab label="Compare Pokemons" {...a11yProps(1)} />
+          <Tab label="About this app" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <PokemonCarts />
       </TabPanel>
       <TabPanel value={value} index={1}>
+        <ComparePokemons />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
         <AboutThisApp />
       </TabPanel>
     </>

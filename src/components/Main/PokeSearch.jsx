@@ -18,7 +18,7 @@ const PokeSearch = () => {
     e.preventDefault()
     setCurrentPokemon({
       state:true,
-      name:input
+      name:input.toLocaleLowerCase()
     })
   }
   
