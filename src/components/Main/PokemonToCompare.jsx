@@ -1,18 +1,14 @@
 import { Box, TextField } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { CompareContext } from '../../context/CompareContext'
 import useFetchPoke from '../../hooks/useFetchPoke'
 
-const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch}) => {
-
-    const {setFirstPokemonData, setSecondPokemonData}= useContext(CompareContext)
+const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch,setFirstPokemonData}) => {
 
     const [input, setInput] = useState('')
   
     const handleInputChange=({target})=>{
       setInput(target.value)
-      console.log(target.value)
     }
   
     const handleSubmit=(e)=>{
@@ -20,18 +16,19 @@ const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch}) => {
       setPokemonToSearch(input.toLowerCase())
     }
 
-    const {types,stats,image,weight,height,names}=useFetchPoke(pokemonToSearch)
+    const {types,stats,image,weight,height,names,loading}=useFetchPoke(pokemonToSearch)
 
     useEffect(() => {
-        setFirstPokemonData({
-            height:height,
-            weight:weight,
-            stats:stats,
-            types:types
-        })
-    }, [names])
-    
-    
+        loading==false&&(
+            setFirstPokemonData({
+                height:height,
+                weight:weight,
+                stats:stats,
+                types:types,
+                loading:loading
+            })
+        )
+    }, [useFetchPoke(pokemonToSearch)])
   
   return (
     <Box component='div'>

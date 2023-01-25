@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import MoreDetailedCard from './MoreDetailedCard';
 import { CardContext } from '../../context/CardContext';
 
-const PokeCarts = () => {
+const PokeCards = () => {
 
   const {currentPokemon, setCurrentPokemon}= useContext(CardContext)
 
@@ -18,9 +18,6 @@ const PokeCarts = () => {
     .then(d=>setData([...d]))
   }, [])
   
-  useEffect(() => {
-    console.log(currentPokemon)
-  }, [currentPokemon])
   
   
   
@@ -46,4 +43,4 @@ const PokeCarts = () => {
   )
 }
 
-export default PokeCarts
+export default PokeCards

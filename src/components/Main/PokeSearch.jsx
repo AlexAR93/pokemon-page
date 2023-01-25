@@ -11,7 +11,6 @@ const PokeSearch = () => {
 
   const handleInputChange=({target})=>{
     setInput(target.value)
-    console.log(target.value)
   }
 
   const handleSubmit=(e)=>{

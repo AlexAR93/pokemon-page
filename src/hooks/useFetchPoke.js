@@ -9,21 +9,28 @@ const useFetchPoke = (pokemon) => {
     });
 
     useEffect( () => {
-        getSelectedPokemon( pokemon )
+        pokemon?(
+            getSelectedPokemon( pokemon )
             .then(data=>{
-                setState({
-                    abilities: data.abilities,
-                    names:data.name,
-                    id:data.id,
-                    image:data.sprites?.front_default,
-                    weight:data.weight,
-                    stats:data.stats,
-                    types:data?.types,
-                    height:data.height,
-                    loading: false
-                });
+                    setState({
+                        abilities: data.abilities,
+                        names:data.name,
+                        id:data.id,
+                        image:data.sprites?.front_default,
+                        weight:data.weight,
+                        stats:data.stats,
+                        types:data?.types,
+                        height:data.height,
+                        loading: false
+                    })
             })
             .catch(err=>alert('No existe este pokemon'))
+        ):(
+            setState({
+                data: [],
+                loading: true
+            })
+        )
 
     }, [pokemon])
 

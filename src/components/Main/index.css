@@ -75,3 +75,13 @@
 .details-container button:hover{
     background: #c2c2c2;
 }
+
+
+/* Compare pokemons view style */
+.stats-container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 0;
+}

@@ -2,8 +2,7 @@ import React from 'react'
 import { Tabs, Tab } from '@mui/material';
 import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
-import Typography from '@mui/material/Typography';
-import PokemonCarts from './PokemonCarts';
+import PokemonCards from './PokemonCards';
 import AboutThisApp from './AboutThisApp';
 import ComparePokemons from './ComparePokemons';
 function TabPanel(props) {
@@ -57,7 +56,7 @@ const Main = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <PokemonCarts />
+        <PokemonCards />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <ComparePokemons />

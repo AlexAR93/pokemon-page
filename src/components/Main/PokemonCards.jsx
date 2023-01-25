@@ -1,15 +1,15 @@
 import React from 'react'
 import CardContextProvider from '../../context/CardContext'
-import PokeCarts from './PokeCarts'
+import PokeCards from './PokeCards'
 import PokeSearch from './PokeSearch'
 
-const PokemonCarts = () => {
+const PokemonCards = () => {
   return (
     <CardContextProvider>
         <PokeSearch/>
-        <PokeCarts/>
+        <PokeCards/>
     </CardContextProvider>
   )
 }
 
-export default PokemonCarts
+export default PokemonCards
