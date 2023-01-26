@@ -17,19 +17,22 @@ const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch,setFirstPokemonDat
     }
 
     const {types,stats,image,weight,height,names,loading}=useFetchPoke(pokemonToSearch)
-
+let gg;
+let yy;
     useEffect(() => {
         loading==false&&(
             setFirstPokemonData({
-                height:height,
-                weight:weight,
-                stats:stats,
-                types:types,
+                data:{
+                    height:height,
+                    weight:weight,
+                    ...Object.fromEntries(stats.map(data=>[`${data.stat.name}`,data.base_stat])),
+                    types:types.map(data=>`${data.type.name}`)
+                },
                 loading:loading
             })
         )
     }, [useFetchPoke(pokemonToSearch)])
-  
+
   return (
     <Box component='div'>
         <Box component='form' pb={3} onSubmit={handleSubmit}>

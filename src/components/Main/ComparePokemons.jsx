@@ -20,17 +20,13 @@ const ComparePokemons = () => {
             <Box component='div' className="comparator-container" sx={{display:'flex', justifyContent:'space-between', alignItems:'center', textAlign:'center'}}>
                 <PokemonToCompare setPokemonToSearch={setPokemonToSearch} pokemonToSearch={pokemonToSearch} setFirstPokemonData={setFirstPokemonData} />
 
-                {
-                    firstPokemonData.loading==false&&(
-                        <StatsList pokemonData={firstPokemonData}/>
-                    )
-                }
-                {
-                    secondPokemonData.loading==false&&(
-                        <StatsList pokemonData={secondPokemonData}/>
-                    )
-                }
-                
+                <div className='stats-container'>
+                    {
+                        (firstPokemonData.loading==false&&secondPokemonData.loading==false)&&(
+                            <StatsList firstPokemonData={firstPokemonData} secondPokemonData={secondPokemonData}/>
+                        )
+                    }
+                </div>
 
                 <PokemonToCompare setPokemonToSearch={setPokemonToSearch2} pokemonToSearch={pokemonToSearch2} setFirstPokemonData={setSecondPokemonData}/>
             </Box>

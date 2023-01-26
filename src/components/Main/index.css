@@ -78,10 +78,41 @@
 
 
 /* Compare pokemons view style */
-.stats-container div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    padding: 15px 0;
+
+.comparator-container{
+    display: grid !important;
+    grid-template-areas: 'pokemon1 stats pokemon2';
+    grid-template-columns: 25% 50% 25%;
+}
+.comparator-container>div:nth-child(1){
+    grid-area: pokemon1;
+}
+.comparator-container>div:nth-child(2){
+    grid-area: stats;
+}
+.comparator-container>div:nth-child(3){
+    grid-area: pokemon2;
+}
+
+.stats-container__line{
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'data1 nameData data2';
+    grid-template-columns: 10% 40% 10%;
+    gap: 20%;
+    padding-bottom: 20px;
+}
+
+.first-data{
+    grid-area: data1;
+}
+.second-data{
+    grid-area: data2;
+}
+.name-data{
+    grid-area: nameData;
+}
+
+.stats-container__line>div p span{
+    display: block;
 }
