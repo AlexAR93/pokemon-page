@@ -1,4 +1,3 @@
-import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import PokemonToCompare from './PokemonToCompare'
 import StatsList from './StatsList'
@@ -14,10 +13,9 @@ const ComparePokemons = () => {
         loading:true
       })
   return (
-
-        <Box component='div' p={1}>
+        <div className='main-compare-view'>
             <h1>Compare stats of the Pokemon you want</h1>
-            <Box component='div' className="comparator-container" sx={{display:'flex', justifyContent:'space-between', alignItems:'center', textAlign:'center'}}>
+            <div className="comparator-container">
                 <PokemonToCompare setPokemonToSearch={setPokemonToSearch} pokemonToSearch={pokemonToSearch} setFirstPokemonData={setFirstPokemonData} />
 
                 <div className='stats-container'>
@@ -29,8 +27,8 @@ const ComparePokemons = () => {
                 </div>
 
                 <PokemonToCompare setPokemonToSearch={setPokemonToSearch2} pokemonToSearch={pokemonToSearch2} setFirstPokemonData={setSecondPokemonData}/>
-            </Box>
-        </Box>
+            </div>
+        </div>
 
 
   )

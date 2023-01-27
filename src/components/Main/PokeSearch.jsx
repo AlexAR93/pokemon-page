@@ -5,7 +5,7 @@ import { CardContext } from '../../context/CardContext'
 
 const PokeSearch = () => {
 
-  const {currentPokemon, setCurrentPokemon}= useContext(CardContext)
+  const {setCurrentPokemon}= useContext(CardContext)
 
   const [input, setInput] = useState('')
 

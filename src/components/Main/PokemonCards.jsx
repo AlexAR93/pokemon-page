@@ -6,8 +6,11 @@ import PokeSearch from './PokeSearch'
 const PokemonCards = () => {
   return (
     <CardContextProvider>
-        <PokeSearch/>
-        <PokeCards/>
+        <main className='main-search-pokemon'>
+          <h1>Search you pokemon</h1>
+          <PokeSearch/>
+          <PokeCards/>
+        </main>
     </CardContextProvider>
   )
 }

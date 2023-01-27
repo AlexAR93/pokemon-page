@@ -27,11 +27,11 @@ export default function Card({name,useFetchPoke,setCurrentPokemon}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+            {name.toUpperCase()}
           </Typography>
           <ul>
-            <li>Fuerza: {weight}</li>
-            <li>Altura: {height}</li>
+            <li>Weight: {weight}</li>
+            <li>Height: {height}</li>
           </ul>
         </CardContent>
       </CardActionArea>

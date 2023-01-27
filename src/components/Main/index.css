@@ -1,3 +1,12 @@
+/* MAIN Search Pokemon */
+.main-search-pokemon h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 10px 0 20px 0;
+}
+
+
 .details-container{
     position: fixed;
     top: 0;
@@ -10,6 +19,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    z-index: 50;
 }
 
 .card-container{
@@ -77,12 +87,28 @@
 }
 
 
-/* Compare pokemons view style */
+/* MAIN to compare Pokemon  */
+
+.main-compare-view{
+    text-align: center;
+}
+
+.main-compare-view h1{
+    padding: 20px 0 30px 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
 
 .comparator-container{
-    display: grid !important;
-    grid-template-areas: 'pokemon1 stats pokemon2';
-    grid-template-columns: 25% 50% 25%;
+    display: grid;
+    grid-template-areas: 'pokemon1 pokemon2'
+    'stats stats';
+    grid-template-columns: 40% 40%;
+    grid-template-rows: 30% 70%;
+    justify-content: center;
+    gap: 10%;
+    text-align: center;
 }
 .comparator-container>div:nth-child(1){
     grid-area: pokemon1;
@@ -95,12 +121,14 @@
 }
 
 .stats-container__line{
-    width: 100%;
+    min-width: 100%;
     display: grid;
     grid-template-areas: 'data1 nameData data2';
-    grid-template-columns: 10% 40% 10%;
+    grid-template-columns: 15% 30% 15%;
+    justify-content: center;
     gap: 20%;
-    padding-bottom: 20px;
+    padding: 10px 0;
+    border: 1px solid #000;
 }
 
 .first-data{
@@ -111,8 +139,25 @@
 }
 .name-data{
     grid-area: nameData;
+    text-transform: uppercase;
 }
-
+.stats-container__line>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .stats-container__line>div p span{
     display: block;
+}
+
+@media (min-width:772px) {
+    .comparator-container{
+        grid-template-areas: 'pokemon1 stats pokemon2';
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: 100%;
+        gap: 0;
+    }
+    .stats-container{
+        margin: 0 10px;
+    }
 }

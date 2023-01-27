@@ -4,21 +4,16 @@ import { useEffect } from 'react'
 import useFetchPoke from '../../hooks/useFetchPoke'
 
 const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch,setFirstPokemonData}) => {
-
     const [input, setInput] = useState('')
   
     const handleInputChange=({target})=>{
       setInput(target.value)
     }
-  
     const handleSubmit=(e)=>{
       e.preventDefault();
       setPokemonToSearch(input.toLowerCase())
     }
-
     const {types,stats,image,weight,height,names,loading}=useFetchPoke(pokemonToSearch)
-let gg;
-let yy;
     useEffect(() => {
         loading==false&&(
             setFirstPokemonData({

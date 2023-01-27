@@ -1,7 +1,5 @@
 import React from 'react'
-
 const StatsList = ({firstPokemonData,secondPokemonData}) => {
-  
   return (
     <>
         {
@@ -20,5 +18,4 @@ const StatsList = ({firstPokemonData,secondPokemonData}) => {
     </>
   )
 }
-
 export default StatsList

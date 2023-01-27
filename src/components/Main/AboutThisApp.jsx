@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutThisApp = () => {
   return (
-    <h1>sa</h1>
+    <h1>Coming soon...</h1>
   )
 }
 

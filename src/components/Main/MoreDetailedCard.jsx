@@ -1,22 +1,17 @@
 import React from 'react'
-
 import './index.css'
-
 
 export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, useFetchPoke}){
 
-    let {types,stats,image,weight,height}=useFetchPoke(currentPokemon.name)
+    let {types,stats,image,weight,height,loading}=useFetchPoke(currentPokemon.name)
     
     const closeDetailsCard=()=>{
         setCurrentPokemon({
             state:false
           })
     }
-
-   
-
   return (
-    image?(
+    loading==false?(
         <div className='details-container'>
         <article className='card-container'>
             <div className="img-container">
@@ -33,13 +28,13 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
             <div className='cardDetails'>
 
                 <div className="cardDetails__principal">
-                    <h2>Fuerza: <span>{weight}</span></h2>
-                    <h2>Altura: <span>{height}</span></h2>
+                    <h2>Weight: <span>{weight}</span></h2>
+                    <h2>Height: <span>{height}</span></h2>
                 </div>
     
                 <div className="cardDetails__secondary">
                     <div className='type'>
-                        <h2>Tipo:</h2>
+                        <h2>Type:</h2>
                         <ul>
                         {
                                 types!==undefined&&(
@@ -67,16 +62,16 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
 
         </article>
         <button onClick={closeDetailsCard}>
-            <p>Cerrar</p>
+            <p>Close</p>
         </button>
     </div>
     ):(
         <div className='details-container'>
             <article className='card-container'>
-                <h1>Cargando...</h1>
+                <h1>Charging...</h1>
             </article>
             <button onClick={closeDetailsCard}>
-                <p>Cerrar</p>
+                <p>Close</p>
             </button>
         </div>
     )
