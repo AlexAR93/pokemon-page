@@ -1,6 +1,19 @@
 import React from 'react'
 import './index.css'
 
+import Swal from 'sweetalert2'
+ 
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
 export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, useFetchPoke}){
 
     let {types,stats,image,weight,height,loading}=useFetchPoke(currentPokemon.name)
@@ -10,6 +23,17 @@ export default function MoreDetailedCard({currentPokemon, setCurrentPokemon, use
             state:false
           })
     }
+
+    loading==false?(Toast.fire({
+        icon: 'success',
+        title: 'Pokémon found!'
+        })):
+        (
+        Toast.fire({
+            icon: 'error',
+            title: 'Pokémon not found!'
+            })
+        )
   return (
     loading==false?(
         <div className='details-container'>

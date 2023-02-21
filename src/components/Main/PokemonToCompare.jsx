@@ -1,7 +1,21 @@
-import { Box, TextField } from '@mui/material'
+import { Box, Button, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import useFetchPoke from '../../hooks/useFetchPoke'
+
+import Swal from 'sweetalert2'
+ 
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
 
 const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch,setFirstPokemonData}) => {
     const [input, setInput] = useState('')
@@ -24,9 +38,23 @@ const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch,setFirstPokemonDat
                     types:types.map(data=>`${data.type.name}`)
                 },
                 loading:loading
-            })
+            }),
+            Toast.fire({
+                icon: 'success',
+                title: 'Pokémon found!'
+                })
         )
+
+        loading=='error'&&(
+            Toast.fire({
+                icon: 'error',
+                title: 'Pokémon not found!'
+                })
+        )
+
     }, [useFetchPoke(pokemonToSearch)])
+
+
 
   return (
     <Box component='div'>
@@ -38,6 +66,13 @@ const PokemonToCompare = ({setPokemonToSearch,pokemonToSearch,setFirstPokemonDat
                 sx={{width:'100%'}}
                 onChange={handleInputChange}
             />
+            <Button 
+            variant="contained"
+            type='submit'
+            sx={{marginTop:'20px'}}
+            >
+                Search
+            </Button>
         </Box>
         {
             image&&names&&(

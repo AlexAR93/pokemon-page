@@ -1,4 +1,4 @@
-import { Box, TextField } from '@mui/material'
+import { Box, Button, TextField } from '@mui/material'
 import React, { useContext } from 'react'
 import { useState } from 'react'
 import { CardContext } from '../../context/CardContext'
@@ -22,7 +22,7 @@ const PokeSearch = () => {
   }
   
   return (
-    <Box component='form' pb={3} onSubmit={handleSubmit}>
+    <Box component='form' pb={3} onSubmit={handleSubmit} sx={{display:'flex', flexDirection:'column'}}>
       <TextField 
         id="outlined-basic"
         label="Search Pokemon"
@@ -30,6 +30,14 @@ const PokeSearch = () => {
         sx={{width:'100%'}}
         onChange={handleInputChange}
       />
+      <Box component='div' sx={{marginTop:'20px',alignSelf:'center'}}>
+        <Button 
+          variant="contained"
+          type='submit'
+          >
+              Search
+        </Button>
+      </Box>
     </Box>
   )
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 import { getSelectedPokemon } from '../helpers/getPokemon';
 
 const useFetchPoke = (pokemon) => {
@@ -24,7 +25,12 @@ const useFetchPoke = (pokemon) => {
                         loading: false
                     })
             })
-            .catch(err=>alert('No existe este pokemon'))
+            .catch(err=> {
+                console.error(err)
+                setState({
+                    loading:'error'
+                })
+            })
         ):(
             setState({
                 data: [],

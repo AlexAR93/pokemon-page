@@ -12,6 +12,7 @@ const ComparePokemons = () => {
       const [secondPokemonData, setSecondPokemonData] = useState({
         loading:true
       })
+      
   return (
         <div className='main-compare-view'>
             <h1>Compare stats of the Pokemon you want</h1>
