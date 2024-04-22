@@ -1,18 +1,16 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css'
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Main from './components/Main';
+import { AppRouter } from './router';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 const App = () => {
   return (
-    <div className="layout">
-        {/* HEADER */}
-        <Header/>
-        {/* MAIN */}
-        <Main/>
-        {/* FOOTER */}
-        <Footer/>
-    </div>
+    <Provider store={store}>
+        <BrowserRouter>
+          <AppRouter/>
+        </BrowserRouter>
+    </Provider>
   )
 }
 

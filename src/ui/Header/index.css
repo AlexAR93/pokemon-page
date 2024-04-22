@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(#0052cd 2%, #486fe58c 48%, transparent 100%);
+}
+.header img{
+    width: 300px;
+    padding: 4rem 0;
+}
