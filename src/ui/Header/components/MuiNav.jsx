@@ -47,14 +47,11 @@ export const MuiNav = () => {
 
   window.addEventListener('popstate',useEffect(() => {
     if(location.pathname=='/pokemons'){
-     setValue(0)
-     console.log('hola')
+     setValue(0);
     }else if(location.pathname=='/compare'){
-      setValue(1)
-      console.log('hola2')
+      setValue(1);
     }else if(location.pathname=='/about'){
-      setValue(2)
-      console.log('hola3')
+      setValue(2);
     }
 }, [location])
 )

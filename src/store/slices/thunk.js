@@ -28,7 +28,7 @@ export const getPokemons=(page = 0)=>async(dispatch,getState)=>{
     dispatch(startLoadingPokemons())
 
      //TODO: realizar petición http
-     const {data}=await pokemonApi.get(`/pokemon?limit=10&offset=${ page*10 }`);        console.log(data.previous)
+     const {data}=await pokemonApi.get(`/pokemon?limit=10&offset=${ page*10 }`);
     const newData=await Promise.all(data.results.map(async({url})=>{
         const {data}=await pokemonApi.get(url);
 
